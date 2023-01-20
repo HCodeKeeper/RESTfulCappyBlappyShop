@@ -4,4 +4,4 @@
 *.pyc
 venv
 env
-.idea
+.idea/
