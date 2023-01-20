@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static  "styles/top_bar.css" %}">
+<div class="nav_bar">
+    <a id="offer" href=""></a>
+    <a href="/">Home</a>
+    <div id="buttons">
+        <a href="/cart"><button id="cart"><img src="{% static 'images/cart.png' %}"/></button></a>
+        <a href="{% url 'account' %}"> <button id="account"><img src="{% static 'images/account.jpeg' %}"/></button></a>
+        <button id="tel"><img src="{% static 'images/tel.jpeg' %}"/></button>
+    </div>
+</div>
+
+<script src="{% static 'js/deals.js' %}"></script>

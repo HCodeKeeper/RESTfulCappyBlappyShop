@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Shopping Cart</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/cart.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.png' %}">
+</head>
+<body>
+   <div class="CartContainer">
+   	   <div class="Header">
+   	   	<h3 class="Heading">Shopping Cart</h3>
+           <h5 class="Home-Action"><a href="/">Home</a> </h5>
+   	   	<h5 class="Action" onclick="remove_all_from_cart();">Remove all</h5>
+   	   </div>
+       {% for _, product in items.items %}
+           <div class="Cart-Items pad">
+           <input class="product_id" value="{{ product.self.id }}" disabled hidden/>
+   	   	  <div class="image-box">
+   	   	  	<img src="{% static product.self.image_src %}" style='height:120px' />
+   	   	  </div>
+   	   	  <div class="about">
+   	   	  	<h1 class="title">{{ product.self.name }}</h1>
+              <div class="Addon">{{ product.addon.name }}</div>
+   	   	  </div>
+   	   	  <div class="counter">
+   	   	  	<div class="count">
+                {{ product.count }}
+            </div>
+   	   	  </div>
+   	   	  <div class="prices">
+   	   	  	<div class="amount">{{ item.self.price }}</div>
+   	   	  	<div class="save"><u>Save for later</u></div>
+   	   	  	<div class="remove" onclick="remove_from_cart('{{ product.self.id }}')"><u>Remove</u></div>
+   	   	  </div>
+   	   </div>
+       {% endfor %}
+
+
+
+   	 <hr>
+   	 <div class="checkout">
+   	 <div class="total">
+   	 	<div>
+   	 		<div class="Subtotal">Sub-Total</div>
+   	 		<div class="items">{{ items_count }}</div>
+   	 	</div>
+   	 	<div class="total-amount">{{ sub_total_price }}$</div>
+   	 </div>
+         <form action='{% url "create_checkout_session" %}' method="POST">
+             {% csrf_token %}
+             <button type="submit" class="button">Checkout</button>
+         </form>
+     </div>
+   </div>
+</body>
+<script src="{% static 'js/cart.js' %}"></script>
+</html>

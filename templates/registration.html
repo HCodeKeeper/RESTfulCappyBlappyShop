@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>CappyBlappyShop: Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static 'styles/login.css' %}>
+</head>
+<body>
+<div class="box-form">
+    <div class="left">
+        <div class="overlay">
+            <h1>CappyBlappyShop</h1>
+            <p>We sell capybaras so you can appreciate them</p>
+        </div>
+    </div>
+    <form method="post" action="{% url 'register_email' %}">
+        {% csrf_token %}
+    <div class="right">
+        <h5>Register</h5>
+        <p>Already have an account? <a href="{% url 'login_page' %}">Login</a></p>
+        <div class="inputs">
+            <input type="email" name="email", placeholder="email">
+            <br>
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <br><br>
+        <br>
+        <button type="submit">Register</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CBShop: Edit Profile</title>
+</head>
+<body>
+    <form method="post" action="{% url 'edit_profile' %}">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="First name">
+        <input type="text" name="second_name" placeholder="Second name">
+        <input type="tel" name="telephone" placeholder="Telephone number">
+        <input type="submit" name="Change">
+    </form>
+</body>
+</html>

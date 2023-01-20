@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>CBShop: Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href={% static 'styles/login.css' %}>
+</head>
+<body>
+<div class="box-form">
+    <div class="left">
+        <div class="overlay">
+            <h1>CappyBlappyShop</h1>
+            <p>We sell capybaras so you can appreciate them</p>
+        </div>
+    </div>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+    <div class="right">
+        <h5>Login</h5>
+        <p>Don't have an account? <a href="{% url 'registration_page' %}">Create Your Account</a>, it takes less than a
+            minute</p>
+        <div class="inputs">
+            <input type="text" name="username" placeholder="username">
+            <br>
+            <input type="password" name="password" placeholder="password">
+        </div>
+        <br><br>
+        <div class="remember-me--forget-password">
+            <label>
+                <input type="checkbox" name="item" checked/>
+                <span class="text-checkbox">Remember me</span>
+            </label>
+            <p><a href="{% url 'update_password_verify_email' %}">forgot password?</a></p>
+        </div>
+        <br>
+        <button type="submit">Login</button>
+    </div>
+    </form>
+</div>
+</body>
+</html>

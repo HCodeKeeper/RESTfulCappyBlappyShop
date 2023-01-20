@@ -1,0 +1,29 @@
+.nav_bar{
+    background-color: #1b1b1b;
+}
+
+.nav_bar > a{
+    margin-right: 5%;
+    left: 50%;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#buttons{
+    margin-left: 5%;
+}
+
+#buttons > button {
+    display: inline-block;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #1b1b1b;
+}
+
+#buttons > button > img{
+    width: 5vw;
+    height: 10vh;
+    object-fit: cover;
+}

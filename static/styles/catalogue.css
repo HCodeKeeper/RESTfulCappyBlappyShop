@@ -1,0 +1,9 @@
+
+.unavailable_price{
+    color: #b3b3b3;
+    text-decoration-line: line-through;
+}
+
+.discounted_price{
+    color: #ff0013;
+}

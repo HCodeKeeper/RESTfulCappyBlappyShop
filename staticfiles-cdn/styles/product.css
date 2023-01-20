@@ -1,0 +1,29 @@
+.product_section{
+    display: flex;
+}
+
+.preview_section{
+    margin-left: 3%;
+    flex: 1;
+}
+
+.main_section{
+    flex: 50%;
+    margin-left: 7%;
+}
+
+#product_img{
+    width: 100%;
+}
+
+#purchase_form > * {
+
+}
+
+#counter{
+    width: 3ch;
+}
+
+.all_block > *{
+    display: block;
+}

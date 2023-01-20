@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>CappyBlappyShop: Account</title>
+    <link rel="stylesheet" href="{% static 'styles/account.css' %}">
+</head>
+<body>
+<header>
+        {% include 'fragments/top_bar.html' %}
+    </header>
+<div>
+<h3>Name: </h3><h1>{{ first_name }} {{ second_name }}</h1>
+</div>
+<div>
+<h4>Email: </h4><h5>{{ email }}</h5>
+</div>
+<div>
+    <h4>Premium: </h4><h5>{% if premium_active %}
+active
+{% endif %}
+{% if not premium_active %}inactive{% endif %}
+</h5>
+</div>
+<div>
+<h4>Telephone: </h4><h5>{{ telephone }}</h5>
+</div>
+<div>
+    <a href="{% url 'get_edit_profile_page'%}">Edit</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+</body>
+</html>

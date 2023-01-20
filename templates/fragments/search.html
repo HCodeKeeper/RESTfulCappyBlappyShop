@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles/search.css' %}">
+<div class="search_segment">
+    <div class="dropdown">
+        <button name="menu" class="menu_btn">Categories</button>
+        <div class="dropdown-content" id="categories"></div>
+    </div>
+    <form action="/find">
+        <input type="search" name="product">
+        <input type="hidden" name="page" value="1">
+    </form>
+</div>
+
+
+<script src="{% static 'js/categories.js' %}"></script>

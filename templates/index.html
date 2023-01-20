@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <title>ClappyBlappy shop</title>
+</head>
+<body>
+    <header>
+        {% include 'fragments/top_bar.html' %}
+        <img src="../static/images/shop_theme.jpg" id="shop_theme">
+    </header>
+    {% include 'fragments/search.html' %}
+    <div class="product_list">
+        <table>
+            {% for product in products %}
+                {% if forloop.first %}
+                    <tr>
+                {% endif %}
+                <th>
+                    <div class="product">
+                        <img alt="https://depositphotos.com/vector-images/no-image-available.html" src="{% static product.image_src %}">
+                        <a href="/product/{{ product.id }}">{{ product.name }}</a>
+                        <span>
+                            {% if product.rating == 0 %}
+                                <p6 class="rating_label">Not rated</p6>
+                            {% endif %}
+
+                            {% if product.rating > 0 %}
+                                <p6 class="rating_label">Rating: {{ product.rating }}/5</p6>
+                            {% endif %}
+                        </span>
+                        <span>
+                            {% if product.price == product.discounted_price %}
+                                <p6 class="price_tag">{{ product.price }}$</p6>
+                            {% else %}
+                                <p6 class="unavailable_price">{{ product.price }}</p6>
+                                <p6> <strong class="discounted_price"> {{ product.discounted_price }} $</strong></p6>
+                            {% endif %}
+                        </span>
+                    </div>
+                </th>
+                {% if forloop.counter|divisibleby:"4" %}
+                    </tr>
+                    {% if not forloop.last %}
+                        <tr>
+                    {% endif %}
+                {% endif %}
+        {% endfor %}
+        </table>
+    </div>
+{% include 'fragments/footer.html' %}
+</body>
+</html>

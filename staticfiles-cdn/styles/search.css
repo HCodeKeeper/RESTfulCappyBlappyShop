@@ -1,0 +1,16 @@
+.menu_btn{
+    display: inline;
+}
+
+.search_segment{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.purchase_button{
+    background-color: #006b1b;
+}
+
+.not_active_button{
+    background-color: #888888;
+}

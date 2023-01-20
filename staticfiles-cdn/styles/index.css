@@ -1,0 +1,9 @@
+.product > img{
+    width: 10%;
+    height: 10%;
+    object-fit: fill;
+}
+
+.product > a{
+    display: block;
+}
