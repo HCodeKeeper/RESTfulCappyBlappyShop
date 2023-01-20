@@ -11,8 +11,6 @@ from rest_framework.decorators import permission_classes
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def succeed(request):
-    cart = Cart(request.session)
-    cart.clear()
     return Response({"checkout fulfilled": True})
 
 

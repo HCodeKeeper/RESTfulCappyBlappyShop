@@ -23,7 +23,10 @@ class ProfileSerializer(ModelSerializer):
         return instance
 
     def _handle_telephone_update(self, instance, validated_data):
-        number = validated_data['telephone']['number']
+        telephone_dict = validated_data.get('telephone', None)
+        if telephone_dict is None:
+            return
+        number = telephone_dict['number']
         if number:
             obj, is_created = Telephone.objects.update_or_create(id=instance.telephone_id,
                                                                  defaults={'number': number,

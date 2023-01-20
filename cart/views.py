@@ -30,9 +30,12 @@ class CartViewSet(ViewSet):
         return Response(item_serializer.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
     @item.mapping.delete
-    def remove_from_cart(self, request, item_pk):
+    def remove_from_cart(self, request):
         cart = Cart(request.session)
-        cart.remove_item(item_pk)
+        product_pk = request.data.get("product_id", None)
+        if product_pk is None:
+            return Response({"Invalid field": "product_id isn't provided"}, HTTP_422_UNPROCESSABLE_ENTITY)
+        cart.remove_item(product_pk)
         return HttpResponseRedirect(redirect_to=reverse('cart-list'))
 
     def put(self, request):

@@ -9,7 +9,6 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path(r'api/', include('shop.urls')),
-    path(r'api/auth/', include('authentication.urls')),
     path(r'api/account/', include('accounts.urls')),
     path('api/', include('cart.urls')),
     path('api/checkout/', include('checkout.urls')),
